@@ -70,6 +70,12 @@
 
 - (void)rtcSession:(PLRTCSession *)session audioLocalInputLevel:(NSInteger)inputLevel localOutputLevel:(NSInteger)outputLevel otherRtcActiveStreams:(NSDictionary *)rtcActiveStreams;
 
+/// @abstract 获取到摄像头原数据时的回调, 便于开发者做滤镜等处理
+- (CVPixelBufferRef)rtcSession:(PLRTCSession *)session cameraSourceDidGetPixelBuffer:(CVPixelBufferRef)pixelBuffer;
+
+/// @abstract 获取到麦克风原数据时的回调
+- (AudioBuffer *)rtcSession:(PLRTCSession *)session microphoneSourceDidGetAudioBuffer:(AudioBuffer *)audioBuffer;
+
 @end
 
 #pragma mark - RTC
