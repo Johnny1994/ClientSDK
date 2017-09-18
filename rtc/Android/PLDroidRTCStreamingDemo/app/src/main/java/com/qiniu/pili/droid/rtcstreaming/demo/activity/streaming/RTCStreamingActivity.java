@@ -106,6 +106,7 @@ public class RTCStreamingActivity extends AppCompatActivity {
     private boolean mIsSpeakerMuted = false;
 
     private boolean mIsStatsEnabled = false;
+    private boolean mIsAudioLevelEnabled = false;
 
     private String mBitrateControl;
 
@@ -196,6 +197,7 @@ public class RTCStreamingActivity extends AppCompatActivity {
          * The audio level callback will cause 5% cpu occupation
          */
         if (audioLevelCallback) {
+            mIsAudioLevelEnabled = audioLevelCallback;
             mRTCStreamingManager.setAudioLevelCallback(mRTCAudioLevelCallback);
         }
 
@@ -545,6 +547,7 @@ public class RTCStreamingActivity extends AppCompatActivity {
                 mIsConferenceStarted = true;
                 // Will cost 2% more cpu usage if enabled
                 mRTCStreamingManager.setStreamStatsEnabled(mIsStatsEnabled);
+                mRTCStreamingManager.setAudioLevelMonitorEnabled(mIsAudioLevelEnabled);
                 /**
                  * Because `startConference` is called in child thread
                  * So we should check if the activity paused.

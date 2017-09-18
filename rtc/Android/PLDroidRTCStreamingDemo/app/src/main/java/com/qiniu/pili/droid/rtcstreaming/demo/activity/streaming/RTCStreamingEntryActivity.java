@@ -167,6 +167,7 @@ public class RTCStreamingEntryActivity extends AppCompatActivity {
                 intent.putExtra("swcodec", mCodecRadioGroup.getCheckedRadioButtonId() == R.id.RadioSWCodec);
                 intent.putExtra("orientation", mRTCModeRadioGroup.getCheckedRadioButtonId() != R.id.RadioPortrait);
                 intent.putExtra("pkmode", mRTCModeRadioGroup.getCheckedRadioButtonId() == R.id.RadioLandscapePK);
+                intent.putExtra("beauty", mCheckBoxBeauty.isChecked());
                 startActivity(intent);
             }
         });

@@ -9,7 +9,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
-        versionName "1.2.0"
+        versionName "1.2.1"
         multiDexEnabled true
         buildConfigField "long", "BUILD_TIMESTAMP", System.currentTimeMillis() + "L"
     }
@@ -34,7 +34,7 @@ dependencies {
     compile 'com.android.support:support-v4:23+'
     compile 'com.qiniu:happy-dns:0.2.8'
     compile files('libs/pldroid-player-1.5.1.jar')
-    compile files('libs/pldroid-rtc-streaming-1.2.0.jar')
+    compile files('libs/pldroid-rtc-streaming-1.2.1.jar')
     compile 'com.android.support:multidex:1.0.1'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4'
