@@ -38,6 +38,7 @@ public class PlaybackActivity extends AppCompatActivity {
     private boolean mIsSWCodec = true;
     private boolean mIsActivityPaused = true;
     private boolean mIsPKMode = false;
+    private boolean mIsFaceBeautyEnabled = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,7 @@ public class PlaybackActivity extends AppCompatActivity {
         mIsLandscape = getIntent().getBooleanExtra("orientation", false);
         mIsAudioOnly = getIntent().getBooleanExtra("audioOnly", false);
         mIsSWCodec = getIntent().getBooleanExtra("swcodec", true);
+        mIsFaceBeautyEnabled = getIntent().getBooleanExtra("beauty", true);
         setRequestedOrientation(mIsLandscape ? ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE : ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         AVOptions options = new AVOptions();
@@ -113,6 +115,7 @@ public class PlaybackActivity extends AppCompatActivity {
         } else if (mIsPKMode) {
             Intent intent = new Intent(this, PKViceAnchorActivity.class);
             intent.putExtra("roomName", mRoomName);
+            intent.putExtra("beauty", mIsFaceBeautyEnabled);
             startActivity(intent);
         } else {
             if (!mIsExtCapture) {
@@ -129,6 +132,7 @@ public class PlaybackActivity extends AppCompatActivity {
         intent.putExtra("roomName", mRoomName);
         intent.putExtra("swcodec", mIsSWCodec);
         intent.putExtra("orientation", mIsLandscape);
+        intent.putExtra("beauty", mIsFaceBeautyEnabled);
         startActivity(intent);
     }
 
